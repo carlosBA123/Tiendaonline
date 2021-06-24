@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+    <%- include('partials/head') %>
+
+<body>
+
+    <%- include('partials/headerNavbar') %>
+
+    <%- include('partials/bottoms') %>
+
+
+    <div class="container-product-detail-page">
+        <div class="container-product-detail">
+            <div class="row title">
+
+                <div class="col-lg-8 col-md-8 col-sm-2 product-name">
+                    <h3><%=oneProduct.name%></h3>
+                </div>
+               
+                <div class="col-lg-3 col-md-3 col-sm-1 product-artist">
+                    <h3><%=oneProduct.artist.first_name%> <%=oneProduct.artist.last_name%></h3>
+                </div>
+
+                    
+                        
+                
+                
+            </div>
+            
+            <div class="row">
+                <div class="col-12 col-md-8 product-image">
+                    <figure class="product-image">
+                        <img  class="imgProductsDetais" src="/images/products/<%=oneProduct.image%>" alt="<%=oneProduct.name%>">
+                    </figure>
+                </div>
+                <div class= "col-12 col-md-4 styles">
+                    <div class="product-specs">
+                        <div class="product-specs-space">
+
+                         
+
+                            <h4>Estilo: </h4>
+                             <div class="dropdown">
+                                 <h5 class="category"><%=oneProduct.category.name%></h5>
+                         
+                        </div>
+                        <div class="product-specs-space">
+                            <h4>Talle:</h4> 
+                            <div class="size">
+                                <h4 class="btn btn-outline-secondary"><%=oneProduct.size.name%></h4>
+                         
+                                
+                                </div>
+                              </div>
+                         
+                            
+                        <div class="product-specs-space">
+                            <h4>Color:</h4>
+                    
+                         <button class="button-color <%=oneProduct.color.name%>"> 
+                        </button>
+                        
+                    
+                        </div>
+                    
+
+                        <div class="row product-specs-space">
+                            
+                            <div class="product-detail-price col-12 text-center">$<%=oneProduct.price%></div>
+                            
+                            <div class="product-detail-button col-12 text-center" ><button class="btn btn-primary btn-lg btn-block">Comprar</button></div>
+                        </div>                 
+                </div>  
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+    <%- include('partials/footer') %>
+    
+</body>
+</html>

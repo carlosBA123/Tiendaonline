@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/head') %>
+
+<body class="body-products">
+
+    <%- include('partials/headerNavbar') %>
+
+    <%- include('partials/bottoms') %>
+
+    <!-- todos los productos -->
+  
+    <div class="container products-wrapper">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="products-title">Todos los usuarios</h2>
+            </div>
+            
+            <% users.forEach(oneUser => { %> 
+            <div class="col-12 col-sm-6 col-lg-4" class="product-container">              
+              
+              <section class="product-box">
+                   <div class="container-product-list">
+                    <h3 class="use-list-name"><%=oneUser.first_name%></h3> 
+                    <h3 class="use-list-lastname"><%=oneUser.last_name%></h3>
+                    <a href="/users/profile"> 
+                        <figure class="product-box_image">
+                            <img  class="img-user-list" src="/images/avatars/<%=oneUser.avatar%>" alt="imagen del usuario">
+                        </figure> 
+                    </a>
+                   </div>
+
+                 <div class="row bottoms-products">
+                  <!-- ========== BOTON BORRAR ========== -->
+                  <div class="col-6 bottom-delete">
+                    <form action="/users/delete/<%=oneUser.id_user%>?_method=DELETE" method="POST">
+                      <button class="btn btn-outline-danger btn-lg " type="submit" aria-pressed="true">Borrar</button>            
+                    </form>
+                  </div>
+
+                    <!-- ========== BOTON EDITAR ========== -->
+                  <div class="col-6 bottom-edit">
+                    <form action="/users/edit/<%=oneUser.id_user%>" method="GET">  
+                      <button class="btn btn-outline-secondary btn-lg" aria-disabled="true">Editar</button>
+                    </form>
+                  </div>
+                </div>
+               </section> 
+                           
+            </div>
+            <% }) %>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <%- include('partials/footer') %>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+<%- include('partials/headernavbar') %>
+<body class="body-conteiner">
+    
+    <!-- ==== Condciional para ver si hay errores en el formulario ==== -->
+    <% if (typeof errors != 'undefined') { %>
+        <p style="color: red">Hay erorres en el formulario</p>
+
+        <% for(let i = 0; i<errors.length; i++) { %>
+            <li style="color: red">
+                <%=errors[i].msg%>
+            </li>
+        <% } %>
+
+    <% } %>
+    <!-- ======== -->
+
+    <form  method="POST" action="/users/register" class="formulario-register" id="validation-form" enctype="multipart/form-data"> 
+        <h1 class="title-register">Registrate</h1>
+
+
+        <div class = "container-register">
+
+            <div class="input-container-register">
+                <i class="fas fa-user icon"></i>
+                <input type="text" name='first_name' placeholder="Nombre" class="input-register" data-name="nombre">
+                <span class="form-feedback"></span>
+            </div>
+
+            <div class="input-container-register">
+                <i class="fas fa-user icon"></i>
+                <input type="text" name='last_name' placeholder="Apellido" class="input-register" data-name="apellido">
+                <span class="form-feedback"></span>
+            </div>
+
+            <div class="input-container-register">
+                <i class="fas fa-envelope icon"></i>
+                <input type="text" name="email" placeholder="Ingresa tu email" class="input-register" data-name="email">
+                <span class="form-feedback"></span>
+            </div>
+
+            <div class="input-container-register">
+                <i class="fas fa-key icon"></i>
+                <input type="password"  name="password" placeholder="Ingresa tu contraseña" class="input-register" data-name="contraseña">
+                <span class="form-feedback"></span>
+            </div>
+
+            <div class="input-container-register">
+                <i class="fas fa-key icon"></i>
+                <input type="password"  name="passwordCheck" placeholder="Confirma tu contraseña" class="input-register" data-name="confirmacion de contraseña">
+                <span class="form-feedback"></span>
+            </div>
+
+            <div class="input-container-register">
+                <label><b>Imagen de perfil:</b></label>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" name="avatar" data-name="imagen de perfil">
+                    <span class="form-feedback"></span>
+                    <label class="custom-file-label">Choose file...</label>
+                    <div class="invalid-feedback">
+                    </div>
+                </div>
+            </div>
+
+            <input type="submit" value="Registrate" class=" button-register">
+            <span class="form-feedback"></span>
+            <p class="texto-register">Al registrarte, aceptas nuestras Condiciones de uso y Políticas privacidad</p>
+            <p class="texto-register">¿Ya tienes cuenta? <a class="link"  href="http://localhost:3000/users/login" >Iniciar Sesion</a></p>
+
+
+        </div>
+
+
+	</form>
+
+    <%- include('partials/footer') %>
+  
+   <!-- <script src="/js/register-script.js"></script> -->
+</body>
+
+</html>
